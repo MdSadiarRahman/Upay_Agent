@@ -1,9 +1,5 @@
 # UpayPulse AI (Upay_Agent)
 
-<div align="center">
-  <img src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" alt="UpayPulse AI" width="800"/>
-</div>
-
 ## Project Overview
 **Problem Statement:** Small and medium enterprises (SMEs) and everyday users often struggle with fragmented financial tools. Merchants lack deep insights into inventory and loan eligibility, while individual users face challenges in managing personal budgets and tracking financial habits.  
 **Proposed Solution:** UpayPulse AI is a unified, intelligent financial platform. It leverages a centralized dual-dashboard system that caters to both businesses and customers, powered by an AI assistant that offers real-time, context-aware financial guidance.  
