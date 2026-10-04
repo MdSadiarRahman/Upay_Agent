@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - upay-development
 
 permissions:
   contents: read
