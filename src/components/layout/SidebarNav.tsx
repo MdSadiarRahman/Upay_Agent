@@ -17,6 +17,7 @@ import {
   CalendarClock,
   ShieldCheck,
   ShieldAlert,
+  BrainCircuit,
   Sparkles,
 } from 'lucide-react';
 import { Language } from '../../types';
@@ -150,6 +151,14 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
             icon: <ShieldCheck className="w-4 h-4" />,
             badge: 'Trust Framework',
             badgeColor: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30',
+          },
+          {
+            id: 'ml_metrics',
+            labelBn: 'এমএল মডেল মেট্রিক্স',
+            labelEn: 'ML Model Metrics',
+            icon: <BrainCircuit className="w-4 h-4" />,
+            badge: 'XGBoost',
+            badgeColor: 'bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30',
           },
         ]
       : []),

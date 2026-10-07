@@ -52,6 +52,7 @@ import { ZeroCashRoutePlanner } from '../customer/ZeroCashRoutePlanner';
 import { ResponsibleAICenter } from '../responsible-ai/ResponsibleAICenter';
 import { CustomerIntelligenceCenter } from '../customer-intelligence/CustomerIntelligenceCenter';
 import { ProactiveInsights } from '../proactive/ProactiveInsights';
+import { ModelMetricsDashboard } from './ModelMetricsDashboard';
 
 interface CustomerDashboardProps {
   language: Language;
@@ -849,6 +850,15 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({
           {activeTab === 'responsible_ai' && (
             <div className="animate-fade-in">
               <ResponsibleAICenter language={language} />
+            </div>
+          )}
+
+          {/* ================================================================= */}
+          {/* ML MODEL METRICS TAB */}
+          {/* ================================================================= */}
+          {activeTab === 'ml_metrics' && (
+            <div className="animate-fade-in">
+              <ModelMetricsDashboard />
             </div>
           )}
 

@@ -71,3 +71,13 @@ def get_user_predictions(
 ):
     return db.query(models.AIPrediction).filter(models.AIPrediction.user_id == current_user.id).offset(skip).limit(limit).all()
 
+@router.get("/model-metrics")
+def get_model_metrics():
+    import os
+    import json
+    metrics_path = os.path.join(os.path.dirname(__file__), '..', 'ml', 'model_metrics.json')
+    if os.path.exists(metrics_path):
+        with open(metrics_path, 'r') as f:
+            return json.load(f)
+    return {"message": "Metrics not found"}
+

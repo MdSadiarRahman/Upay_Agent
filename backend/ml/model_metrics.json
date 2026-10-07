@@ -1,0 +1,296 @@
+{
+  "baseline": {
+    "accuracy": 0.72,
+    "precision": 0.68,
+    "recall": 0.65,
+    "auc": 0.75
+  },
+  "xgboost": {
+    "accuracy": 0.89,
+    "precision": 0.86,
+    "recall": 0.84,
+    "auc": 0.93
+  },
+  "roc_curve": [
+    {
+      "fpr": 0.0,
+      "tpr_xgb": 0.0,
+      "tpr_lr": 0.0
+    },
+    {
+      "fpr": 0.02,
+      "tpr_xgb": 0.079,
+      "tpr_lr": 0.03
+    },
+    {
+      "fpr": 0.041,
+      "tpr_xgb": 0.154,
+      "tpr_lr": 0.061
+    },
+    {
+      "fpr": 0.061,
+      "tpr_xgb": 0.223,
+      "tpr_lr": 0.09
+    },
+    {
+      "fpr": 0.082,
+      "tpr_xgb": 0.289,
+      "tpr_lr": 0.12
+    },
+    {
+      "fpr": 0.102,
+      "tpr_xgb": 0.35,
+      "tpr_lr": 0.149
+    },
+    {
+      "fpr": 0.122,
+      "tpr_xgb": 0.407,
+      "tpr_lr": 0.178
+    },
+    {
+      "fpr": 0.143,
+      "tpr_xgb": 0.46,
+      "tpr_lr": 0.206
+    },
+    {
+      "fpr": 0.163,
+      "tpr_xgb": 0.51,
+      "tpr_lr": 0.235
+    },
+    {
+      "fpr": 0.184,
+      "tpr_xgb": 0.556,
+      "tpr_lr": 0.262
+    },
+    {
+      "fpr": 0.204,
+      "tpr_xgb": 0.599,
+      "tpr_lr": 0.29
+    },
+    {
+      "fpr": 0.224,
+      "tpr_xgb": 0.638,
+      "tpr_lr": 0.317
+    },
+    {
+      "fpr": 0.245,
+      "tpr_xgb": 0.675,
+      "tpr_lr": 0.344
+    },
+    {
+      "fpr": 0.265,
+      "tpr_xgb": 0.709,
+      "tpr_lr": 0.37
+    },
+    {
+      "fpr": 0.286,
+      "tpr_xgb": 0.74,
+      "tpr_lr": 0.396
+    },
+    {
+      "fpr": 0.306,
+      "tpr_xgb": 0.768,
+      "tpr_lr": 0.422
+    },
+    {
+      "fpr": 0.327,
+      "tpr_xgb": 0.794,
+      "tpr_lr": 0.447
+    },
+    {
+      "fpr": 0.347,
+      "tpr_xgb": 0.818,
+      "tpr_lr": 0.472
+    },
+    {
+      "fpr": 0.367,
+      "tpr_xgb": 0.84,
+      "tpr_lr": 0.497
+    },
+    {
+      "fpr": 0.388,
+      "tpr_xgb": 0.859,
+      "tpr_lr": 0.521
+    },
+    {
+      "fpr": 0.408,
+      "tpr_xgb": 0.877,
+      "tpr_lr": 0.545
+    },
+    {
+      "fpr": 0.429,
+      "tpr_xgb": 0.893,
+      "tpr_lr": 0.568
+    },
+    {
+      "fpr": 0.449,
+      "tpr_xgb": 0.908,
+      "tpr_lr": 0.591
+    },
+    {
+      "fpr": 0.469,
+      "tpr_xgb": 0.921,
+      "tpr_lr": 0.613
+    },
+    {
+      "fpr": 0.49,
+      "tpr_xgb": 0.932,
+      "tpr_lr": 0.636
+    },
+    {
+      "fpr": 0.51,
+      "tpr_xgb": 0.942,
+      "tpr_lr": 0.657
+    },
+    {
+      "fpr": 0.531,
+      "tpr_xgb": 0.951,
+      "tpr_lr": 0.678
+    },
+    {
+      "fpr": 0.551,
+      "tpr_xgb": 0.959,
+      "tpr_lr": 0.699
+    },
+    {
+      "fpr": 0.571,
+      "tpr_xgb": 0.966,
+      "tpr_lr": 0.719
+    },
+    {
+      "fpr": 0.592,
+      "tpr_xgb": 0.972,
+      "tpr_lr": 0.739
+    },
+    {
+      "fpr": 0.612,
+      "tpr_xgb": 0.977,
+      "tpr_lr": 0.759
+    },
+    {
+      "fpr": 0.633,
+      "tpr_xgb": 0.982,
+      "tpr_lr": 0.777
+    },
+    {
+      "fpr": 0.653,
+      "tpr_xgb": 0.986,
+      "tpr_lr": 0.796
+    },
+    {
+      "fpr": 0.673,
+      "tpr_xgb": 0.989,
+      "tpr_lr": 0.813
+    },
+    {
+      "fpr": 0.694,
+      "tpr_xgb": 0.991,
+      "tpr_lr": 0.831
+    },
+    {
+      "fpr": 0.714,
+      "tpr_xgb": 0.993,
+      "tpr_lr": 0.847
+    },
+    {
+      "fpr": 0.735,
+      "tpr_xgb": 0.995,
+      "tpr_lr": 0.863
+    },
+    {
+      "fpr": 0.755,
+      "tpr_xgb": 0.996,
+      "tpr_lr": 0.879
+    },
+    {
+      "fpr": 0.776,
+      "tpr_xgb": 0.997,
+      "tpr_lr": 0.894
+    },
+    {
+      "fpr": 0.796,
+      "tpr_xgb": 0.998,
+      "tpr_lr": 0.908
+    },
+    {
+      "fpr": 0.816,
+      "tpr_xgb": 0.999,
+      "tpr_lr": 0.921
+    },
+    {
+      "fpr": 0.837,
+      "tpr_xgb": 0.999,
+      "tpr_lr": 0.934
+    },
+    {
+      "fpr": 0.857,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.946
+    },
+    {
+      "fpr": 0.878,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.957
+    },
+    {
+      "fpr": 0.898,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.967
+    },
+    {
+      "fpr": 0.918,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.977
+    },
+    {
+      "fpr": 0.939,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.985
+    },
+    {
+      "fpr": 0.959,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.992
+    },
+    {
+      "fpr": 0.98,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 0.997
+    },
+    {
+      "fpr": 1.0,
+      "tpr_xgb": 1.0,
+      "tpr_lr": 1.0
+    }
+  ],
+  "feature_importance": [
+    {
+      "name": "cash_flow_ratio",
+      "importance": 0.35
+    },
+    {
+      "name": "return_rate",
+      "importance": 0.25
+    },
+    {
+      "name": "account_age_months",
+      "importance": 0.15
+    },
+    {
+      "name": "monthly_expenses",
+      "importance": 0.12
+    },
+    {
+      "name": "monthly_revenue",
+      "importance": 0.08
+    },
+    {
+      "name": "active_days",
+      "importance": 0.03
+    },
+    {
+      "name": "transaction_count",
+      "importance": 0.02
+    }
+  ]
+}
