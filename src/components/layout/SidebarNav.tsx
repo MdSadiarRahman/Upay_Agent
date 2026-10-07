@@ -16,6 +16,7 @@ import {
   Wallet,
   CalendarClock,
   ShieldCheck,
+  ShieldAlert,
 } from 'lucide-react';
 import { Language } from '../../types';
 import { AuthUser } from '../../types/auth';
@@ -132,6 +133,14 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
             icon: <ShieldCheck className="w-4 h-4" />,
             badge: 'Explainable AI',
             badgeColor: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30',
+          },
+          {
+            id: 'human_review',
+            labelBn: 'হিউম্যান রিভিউ',
+            labelEn: 'Human Review',
+            icon: <ShieldAlert className="w-4 h-4" />,
+            badge: 'Oversight',
+            badgeColor: 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30',
           },
         ]
       : []),

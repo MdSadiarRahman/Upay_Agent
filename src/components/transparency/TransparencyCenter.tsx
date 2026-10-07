@@ -10,6 +10,7 @@ export const TransparencyCenter = ({ language }: { language: string }) => {
 
   const dummyData = {
     score: 82,
+    confidence: 91,
     features: [
       { name: "Income Stability", value: 85, color: "bg-emerald-500" },
       { name: "Payment History", value: 75, color: "bg-emerald-400" },
@@ -53,7 +54,7 @@ export const TransparencyCenter = ({ language }: { language: string }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-6">
-          <FinancialScoreCard score={dummyData.score} />
+          <FinancialScoreCard score={dummyData.score} confidence={dummyData.confidence} />
           <FeatureImportanceChart features={dummyData.features} />
           <AuditLogCard logs={dummyData.logs} />
         </div>

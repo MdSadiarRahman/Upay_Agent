@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, AlertTriangle } from 'lucide-react';
 
-export const FinancialScoreCard = ({ score }: { score: number }) => {
+export const FinancialScoreCard = ({ score, confidence }: { score: number, confidence: number }) => {
   const isHighRisk = score < 60;
   
   return (
@@ -16,15 +16,28 @@ export const FinancialScoreCard = ({ score }: { score: number }) => {
         <span className="text-xl font-bold text-slate-500">/100</span>
       </div>
       
-      <div className="flex items-center gap-2 mb-6">
-        <span className="text-sm font-semibold text-slate-600 dark:text-slate-400">Risk Level:</span>
-        <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase ${
-          score >= 80 ? 'bg-emerald-100 text-emerald-700' : 
-          score >= 60 ? 'bg-amber-100 text-amber-700' : 
-          'bg-rose-100 text-rose-700'
-        }`}>
-          {score >= 80 ? 'Low' : score >= 60 ? 'Medium' : 'High'}
-        </span>
+      <div className="flex flex-col gap-3 mb-6">
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-semibold text-slate-600 dark:text-slate-400">Risk Level:</span>
+          <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase ${
+            score >= 80 ? 'bg-emerald-100 text-emerald-700' : 
+            score >= 60 ? 'bg-amber-100 text-amber-700' : 
+            'bg-rose-100 text-rose-700'
+          }`}>
+            {score >= 80 ? 'Low' : score >= 60 ? 'Medium' : 'High'}
+          </span>
+        </div>
+        
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-semibold text-slate-600 dark:text-slate-400">AI Confidence:</span>
+          <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase ${
+            confidence >= 80 ? 'bg-indigo-100 text-indigo-700' : 
+            confidence >= 60 ? 'bg-amber-100 text-amber-700' : 
+            'bg-rose-100 text-rose-700'
+          }`}>
+            {confidence}%
+          </span>
+        </div>
       </div>
       
       <div className="pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 flex items-start gap-2">
