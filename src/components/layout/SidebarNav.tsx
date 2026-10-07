@@ -15,6 +15,7 @@ import {
   Moon,
   Wallet,
   CalendarClock,
+  ShieldCheck,
 } from 'lucide-react';
 import { Language } from '../../types';
 import { AuthUser } from '../../types/auth';
@@ -122,6 +123,18 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
       labelEn: isCustomer ? 'Account Statements' : 'Audit & Compliance',
       icon: <FileText className="w-4 h-4" />,
     },
+    ...(isCustomer
+      ? [
+          {
+            id: 'transparency',
+            labelBn: 'এআই ট্রান্সপারেন্সি',
+            labelEn: 'AI Transparency',
+            icon: <ShieldCheck className="w-4 h-4" />,
+            badge: 'Explainable AI',
+            badgeColor: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30',
+          },
+        ]
+      : []),
   ];
 
   const sidebarContent = (

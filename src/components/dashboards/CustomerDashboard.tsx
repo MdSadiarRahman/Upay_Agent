@@ -49,6 +49,7 @@ import { TransactionModal } from '../wallet/TransactionModal';
 import { TransactionReceiptModal } from '../wallet/TransactionReceiptModal';
 import { TransactionHistory } from '../wallet/TransactionHistory';
 import { ZeroCashRoutePlanner } from '../customer/ZeroCashRoutePlanner';
+import { TransparencyCenter } from '../transparency/TransparencyCenter';
 
 interface CustomerDashboardProps {
   language: Language;
@@ -823,7 +824,16 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({
           )}
 
           {/* ================================================================= */}
-          {/* 8. SETTINGS TAB */}
+          {/* 8. TRANSPARENCY CENTER TAB */}
+          {/* ================================================================= */}
+          {activeTab === 'transparency' && (
+            <div className="animate-fade-in">
+              <TransparencyCenter language={language} />
+            </div>
+          )}
+
+          {/* ================================================================= */}
+          {/* 9. SETTINGS TAB */}
           {/* ================================================================= */}
           {activeTab === 'settings' && (
             <div className="animate-fade-in">

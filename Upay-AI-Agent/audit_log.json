@@ -1,0 +1,44 @@
+[
+    {
+        "timestamp": "2026-10-07T09:29:17.484810",
+        "user_id": "C102",
+        "features_used": {
+            "Income": 60000,
+            "Expense": 40000,
+            "Savings": 15000,
+            "Transactions": 50,
+            "LatePayment": 0
+        },
+        "model_output": 87,
+        "explanation_generated": "Your score is influenced by:\n\nPositive Factors:\n\u2713 Savings\n\u2713 Income\n\u2713 Transactions\n\u2713 LatePayment\n\nImprovement Areas:\n\u26a0 Expense\n\nGemini Output:\n\"Your score is higher mainly because your savings is strong.\"",
+        "reviewer_status": "Pending Human Review"
+    },
+    {
+        "timestamp": "2026-10-07T09:29:29.073776",
+        "user_id": "C102",
+        "features_used": {
+            "Income": 60000,
+            "Expense": 40000,
+            "Savings": 15000,
+            "Transactions": 50,
+            "LatePayment": 0
+        },
+        "model_output": 87,
+        "explanation_generated": "Your score is influenced by:\n\nPositive Factors:\n\u2713 Savings\n\u2713 Income\n\u2713 Transactions\n\u2713 LatePayment\n\nImprovement Areas:\n\u26a0 Expense\n\nGemini Output:\n\"Your score is higher mainly because your savings is strong.\"",
+        "reviewer_status": "Pending Human Review"
+    },
+    {
+        "timestamp": "2026-10-07T09:32:39.733913",
+        "user_id": "C102",
+        "features_used": {
+            "Income": 60000,
+            "Expense": 40000,
+            "Savings": 15000,
+            "Transactions": 50,
+            "LatePayment": 0
+        },
+        "model_output": 87,
+        "explanation_generated": "Your score is influenced by:\n\nPositive Factors:\n\u2713 Savings\n\u2713 Income\n\u2713 Transactions\n\u2713 LatePayment\n\nImprovement Areas:\n\u26a0 Expense\n\nGemini Output:\n\"Your score is higher mainly because your savings is strong.\"",
+        "reviewer_status": "Pending Human Review"
+    }
+]
