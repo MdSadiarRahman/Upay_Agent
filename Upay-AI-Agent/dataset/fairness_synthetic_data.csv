@@ -1,0 +1,11 @@
+customer_id,age_group,location_group,income_group,transaction_behavior,financial_score
+C001,18-30,Urban,Medium,Good,85
+C002,18-30,Rural,Medium,Good,83
+C003,50+,Urban,High,Good,87
+C004,31-50,Semi-Urban,Low,Poor,55
+C005,18-30,Rural,Low,Poor,53
+C006,50+,Rural,Medium,Good,86
+C007,31-50,Urban,High,Excellent,92
+C008,18-30,Urban,High,Excellent,94
+C009,50+,Semi-Urban,Low,Poor,58
+C010,31-50,Rural,High,Excellent,89
