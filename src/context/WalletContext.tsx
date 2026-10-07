@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import { WalletTransaction, TransactionType, TransactionCategory } from '../types/wallet';
 import { INITIAL_TRANSACTIONS } from '../data/walletData';
 
@@ -135,13 +136,57 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     return 65000;
   });
 
-  const [transactions, setTransactions] = useState<WalletTransaction[]>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEYS.TRANSACTIONS);
-      if (saved) return JSON.parse(saved);
-    } catch (e) {}
-    return INITIAL_TRANSACTIONS;
-  });
+  const [transactions, setTransactions] = useState<WalletTransaction[]>(INITIAL_TRANSACTIONS);
+
+  // Fetch transactions from API
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      const token = localStorage.getItem('upaypulse_token');
+      if (!token) {
+        // Fallback to local storage if not logged in via API
+        try {
+          const saved = localStorage.getItem(STORAGE_KEYS.TRANSACTIONS);
+          if (saved) setTransactions(JSON.parse(saved));
+        } catch (e) {}
+        return;
+      }
+      try {
+        const response = await axios.get('http://localhost:8000/api/transactions/', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        
+        // Map backend transactions to WalletTransaction format
+        const apiTxs: WalletTransaction[] = response.data.map((t: any) => ({
+          id: `UP-${t.id}`,
+          type: t.type === 'credit' ? 'add_money' : 'send_money',
+          category: t.type === 'credit' ? 'income' : 'expense',
+          titleBn: t.type === 'credit' ? 'টাকা যোগ' : 'টাকা পাঠানো',
+          titleEn: t.type === 'credit' ? 'Added Money' : 'Sent Money',
+          amount: t.amount,
+          fee: 0,
+          totalDeducted: t.amount,
+          senderId: 'api',
+          senderName: 'User',
+          senderPhone: 'N/A',
+          receiverId: 'api',
+          receiverName: 'User',
+          receiverPhone: 'N/A',
+          date: new Date(t.timestamp).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+          time: new Date(t.timestamp).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
+          timestamp: new Date(t.timestamp).getTime(),
+          status: t.status,
+          reference: 'API Transaction',
+          extraDetails: {},
+        }));
+        
+        // Combine API transactions with INITIAL_TRANSACTIONS
+        setTransactions([...apiTxs, ...INITIAL_TRANSACTIONS]);
+      } catch (err) {
+        console.error('Failed to fetch transactions from API', err);
+      }
+    };
+    fetchTransactions();
+  }, []);
 
   // Sync to localStorage
   useEffect(() => {
@@ -223,6 +268,21 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     setCustomerBalance((prev) => prev - totalDeducted);
     setTransactions((prev) => [newTx, ...prev]);
+
+    try {
+      const token = localStorage.getItem('upaypulse_token');
+      if (token) {
+        await axios.post('http://localhost:8000/api/transactions/', {
+          amount: totalDeducted,
+          type: 'debit',
+          status: 'completed'
+        }, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+      }
+    } catch (err) {
+      console.error("Failed to sync transaction", err);
+    }
 
     return { success: true, transaction: newTx };
   };

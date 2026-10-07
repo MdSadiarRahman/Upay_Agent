@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import { AuthUser, LoginCredentials, UserAccountType, BusinessRole } from '../types/auth';
 
 export const DEMO_USERS: Record<string, AuthUser> = {
@@ -112,27 +113,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return { success: false, error: '৪ ডিজিটের গোপন পিন নম্বর প্রদান করুন (4-digit PIN required)' };
     }
 
-    if (credentials.accountType === 'customer') {
-      const loggedUser: AuthUser = {
-        ...DEMO_USERS.customer,
-        phone: credentials.phone.includes('-') ? credentials.phone : '01711-234567',
-      };
-      setUser(loggedUser);
-      return { success: true };
+    let role = credentials.accountType === 'customer' ? 'customer' : (credentials.businessRole || 'agent');
+    let email = '';
+    let password = '';
+    if (role === 'customer') {
+      email = 'tanvir971hasan@gmail.com';
+      password = 'customer_pin';
+    } else if (role === 'agent') {
+      email = 'shahid.telecom@upayagent.bd';
+      password = 'agent_pin';
+    } else if (role === 'merchant') {
+      email = 'rahman.pharmacy@upaymerchant.bd';
+      password = 'merchant_pin';
     } else {
-      const role = credentials.businessRole || 'agent';
-      const template = DEMO_USERS[role] || DEMO_USERS.agent;
+      email = 'anwar.hossain@upay.com.bd';
+      password = 'operator_pin';
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/auth/login', 
+        new URLSearchParams({ username: email, password: password }),
+        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+      );
+      const token = response.data.access_token;
+      localStorage.setItem('upaypulse_token', token);
+      
+      const template = DEMO_USERS[role] || DEMO_USERS.customer;
       const loggedUser: AuthUser = {
         ...template,
         phone: credentials.phone.includes('-') ? credentials.phone : template.phone,
       };
       setUser(loggedUser);
       return { success: true };
+    } catch (err) {
+      console.error(err);
+      return { success: false, error: 'Login failed (API error)' };
     }
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('upaypulse_token');
   };
 
   const switchDemoUser = (key: 'customer' | 'agent' | 'merchant' | 'operator') => {

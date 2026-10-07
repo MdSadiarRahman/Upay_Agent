@@ -49,10 +49,11 @@ import { TransactionModal } from '../wallet/TransactionModal';
 import { TransactionReceiptModal } from '../wallet/TransactionReceiptModal';
 import { TransactionHistory } from '../wallet/TransactionHistory';
 import { ZeroCashRoutePlanner } from '../customer/ZeroCashRoutePlanner';
-import { ResponsibleAICenter } from '../responsible-ai/ResponsibleAICenter';
+import { ResponsibleAI } from '../responsible-ai/ResponsibleAI';
 import { CustomerIntelligenceCenter } from '../customer-intelligence/CustomerIntelligenceCenter';
 import { ProactiveInsights } from '../proactive/ProactiveInsights';
 import { ModelMetricsDashboard } from './ModelMetricsDashboard';
+import { FinancialReadinessSection } from './FinancialReadinessSection';
 
 interface CustomerDashboardProps {
   language: Language;
@@ -849,7 +850,16 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({
           {/* ================================================================= */}
           {activeTab === 'responsible_ai' && (
             <div className="animate-fade-in">
-              <ResponsibleAICenter language={language} />
+              <ResponsibleAI language={language} />
+            </div>
+          )}
+
+          {/* ================================================================= */}
+          {/* FINANCIAL READINESS TAB */}
+          {/* ================================================================= */}
+          {activeTab === 'financial_readiness' && (
+            <div className="animate-fade-in">
+              <FinancialReadinessSection language={language} />
             </div>
           )}
 
