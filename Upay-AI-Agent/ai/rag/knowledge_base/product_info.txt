@@ -1,0 +1,21 @@
+UpayPulse AI Knowledge Base
+===========================
+
+# About UpayPulse AI
+UpayPulse AI is an AI-powered financial intelligence platform connecting customers, merchants, and agents.
+
+# Responsible AI Rules
+- AI provides financial insights only.
+- AI does not approve or reject loans.
+- AI cannot execute transactions autonomously without user confirmation.
+
+# Privacy Knowledge
+- Data Permission: Users have full control over their data. AI only uses data that the user has explicitly consented to share.
+- Security: All personal data is anonymized before AI processing.
+- User Control: Users can revoke AI data access at any time through the Privacy Center.
+
+# Features
+- Customer Dashboard: Track expenses, manage smart bills, and receive AI financial insights.
+- Merchant Dashboard: Monitor growth, customer retention, and sales intelligence.
+- Agent Dashboard: Track liquidity and manage cash flow.
+- AI Financial Assistant: A chatbot for answering financial questions and providing insights based on secure data.

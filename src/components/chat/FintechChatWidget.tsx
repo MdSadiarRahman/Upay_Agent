@@ -339,10 +339,37 @@ export const FintechChatWidget: React.FC<FintechChatWidgetProps> = ({
                   className={`p-3 rounded-2xl leading-relaxed text-xs ${
                     isUser
                       ? 'bg-amber-400 text-slate-950 font-semibold rounded-tr-none shadow-sm'
+                      : msg.isGuardrailBlocked
+                      ? 'bg-red-50 dark:bg-red-950/30 text-red-900 dark:text-red-200 border border-red-200 dark:border-red-800/70 rounded-tl-none shadow-sm'
                       : 'bg-slate-100 dark:bg-slate-800/90 text-slate-900 dark:text-slate-200 border border-slate-200 dark:border-slate-700/70 rounded-tl-none shadow-sm'
                   }`}
                 >
+                  {msg.isGuardrailBlocked && (
+                    <div className="flex items-center gap-1.5 mb-2 text-red-600 dark:text-red-400 font-bold border-b border-red-200 dark:border-red-800/50 pb-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span>{isBn ? 'নিরাপত্তা অ্যালার্ট' : 'Safety Guardrail Triggered'}</span>
+                    </div>
+                  )}
                   <p className="whitespace-pre-wrap">{text}</p>
+                  
+                  {/* AI Metadata (Confidence & Source) */}
+                  {!isUser && msg.confidenceScore && (
+                    <div className="mt-2 mb-1 pt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] opacity-80">
+                      <div className="flex items-center gap-1">
+                        <span className="font-semibold">{isBn ? 'নির্ভুলতা:' : 'Confidence:'}</span>
+                        <span className={msg.confidenceScore >= 90 ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-amber-600 dark:text-amber-400 font-bold'}>
+                          {msg.confidenceScore}%
+                        </span>
+                      </div>
+                      {msg.source && (
+                        <div className="flex items-center gap-1 text-slate-500">
+                          <span className="font-semibold">{isBn ? 'উৎস:' : 'Source:'}</span>
+                          <span>{msg.source}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
                   {/* Actions & Utilities on AI Messages */}
                   {!isUser && (
                     <div className="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">

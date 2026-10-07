@@ -5,6 +5,7 @@ import { DataHealthDashboard } from './DataHealthDashboard';
 import { FairnessMonitoring } from '../../../Upay-AI-Agent/frontend/components/FairnessMonitoring';
 import { TransparencyCenter } from '../transparency/TransparencyCenter';
 import { HumanReviewCenter } from '../human_review/HumanReviewCenter';
+import { AIGuardrailDashboard } from './AIGuardrailDashboard';
 import { ShieldCheck } from 'lucide-react';
 
 export const ResponsibleAICenter = ({ language }: { language: string }) => {
@@ -54,7 +55,14 @@ export const ResponsibleAICenter = ({ language }: { language: string }) => {
 
       <div className="space-y-6">
         <h2 className="text-xl font-bold text-slate-900 dark:text-white px-2 border-b border-slate-200 dark:border-slate-800 pb-2 mt-8">
-          4. Human Oversight
+          4. AI Safety & Guardrails
+        </h2>
+        <AIGuardrailDashboard language={language} />
+      </div>
+
+      <div className="space-y-6">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white px-2 border-b border-slate-200 dark:border-slate-800 pb-2 mt-8">
+          5. Human Oversight
         </h2>
         <HumanReviewCenter language={language} />
       </div>
