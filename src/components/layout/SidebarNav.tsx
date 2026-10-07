@@ -127,20 +127,12 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
     ...(isCustomer
       ? [
           {
-            id: 'transparency',
-            labelBn: 'এআই ট্রান্সপারেন্সি',
-            labelEn: 'AI Transparency',
+            id: 'responsible_ai',
+            labelBn: 'রেসপন্সিবল এআই',
+            labelEn: 'Responsible AI',
             icon: <ShieldCheck className="w-4 h-4" />,
-            badge: 'Explainable AI',
+            badge: 'Trust Framework',
             badgeColor: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30',
-          },
-          {
-            id: 'human_review',
-            labelBn: 'হিউম্যান রিভিউ',
-            labelEn: 'Human Review',
-            icon: <ShieldAlert className="w-4 h-4" />,
-            badge: 'Oversight',
-            badgeColor: 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30',
           },
         ]
       : []),

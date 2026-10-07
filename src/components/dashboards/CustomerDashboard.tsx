@@ -49,8 +49,7 @@ import { TransactionModal } from '../wallet/TransactionModal';
 import { TransactionReceiptModal } from '../wallet/TransactionReceiptModal';
 import { TransactionHistory } from '../wallet/TransactionHistory';
 import { ZeroCashRoutePlanner } from '../customer/ZeroCashRoutePlanner';
-import { TransparencyCenter } from '../transparency/TransparencyCenter';
-import { HumanReviewCenter } from '../human_review/HumanReviewCenter';
+import { ResponsibleAICenter } from '../responsible-ai/ResponsibleAICenter';
 
 interface CustomerDashboardProps {
   language: Language;
@@ -825,20 +824,11 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({
           )}
 
           {/* ================================================================= */}
-          {/* 8. TRANSPARENCY CENTER TAB */}
+          {/* 8. RESPONSIBLE AI CENTER TAB */}
           {/* ================================================================= */}
-          {activeTab === 'transparency' && (
+          {activeTab === 'responsible_ai' && (
             <div className="animate-fade-in">
-              <TransparencyCenter language={language} />
-            </div>
-          )}
-
-          {/* ================================================================= */}
-          {/* 9. HUMAN REVIEW CENTER TAB */}
-          {/* ================================================================= */}
-          {activeTab === 'human_review' && (
-            <div className="animate-fade-in">
-              <HumanReviewCenter language={language} />
+              <ResponsibleAICenter language={language} />
             </div>
           )}
 
