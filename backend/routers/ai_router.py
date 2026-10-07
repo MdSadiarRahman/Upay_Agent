@@ -1,10 +1,54 @@
-from fastapi import APIRouter, Depends
+import os
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
+import google.generativeai as genai
 import schemas, models, auth
 from database import get_db
 
 router = APIRouter(prefix="/api/ai", tags=["ai"])
+
+# Configure Gemini AI
+# The GEMINI_API_KEY should be set in the .env file
+api_key = os.getenv("GEMINI_API_KEY")
+if api_key:
+    genai.configure(api_key=api_key)
+
+from pydantic import BaseModel
+
+class GenerateInsightRequest(BaseModel):
+    prompt: str
+    score: float
+
+@router.post("/generate-insight", response_model=schemas.AIPredictionResponse)
+def generate_and_save_insight(
+    request: GenerateInsightRequest, 
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(auth.get_current_user)
+):
+    try:
+        # Check if API key is configured
+        if not api_key:
+            # Fallback for development if no key is provided
+            generated_text = f"Simulated AI explanation for score {request.score} based on prompt: {request.prompt}"
+        else:
+            model = genai.GenerativeModel('gemini-1.5-flash')
+            response = model.generate_content(request.prompt)
+            generated_text = response.text
+            
+        db_prediction = models.AIPrediction(
+            user_id=current_user.id,
+            model_name="gemini-1.5-flash",
+            score=request.score,
+            explanation=generated_text
+        )
+        db.add(db_prediction)
+        db.commit()
+        db.refresh(db_prediction)
+        return db_prediction
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/predictions", response_model=schemas.AIPredictionResponse)
 def save_ai_prediction(
@@ -26,3 +70,4 @@ def get_user_predictions(
     current_user: models.User = Depends(auth.get_current_user)
 ):
     return db.query(models.AIPrediction).filter(models.AIPrediction.user_id == current_user.id).offset(skip).limit(limit).all()
+
