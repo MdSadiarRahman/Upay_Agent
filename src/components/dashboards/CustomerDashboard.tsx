@@ -50,6 +50,7 @@ import { TransactionReceiptModal } from '../wallet/TransactionReceiptModal';
 import { TransactionHistory } from '../wallet/TransactionHistory';
 import { ZeroCashRoutePlanner } from '../customer/ZeroCashRoutePlanner';
 import { ResponsibleAICenter } from '../responsible-ai/ResponsibleAICenter';
+import { CustomerIntelligenceCenter } from '../customer-intelligence/CustomerIntelligenceCenter';
 
 interface CustomerDashboardProps {
   language: Language;
@@ -742,6 +743,15 @@ export const CustomerDashboard: React.FC<CustomerDashboardProps> = ({
                 onOpenAddMoney={() => setActiveModalService('add_money')}
                 onRecordCashoutDiverted={onRecordCashoutDiverted}
               />
+            </div>
+          )}
+
+          {/* ================================================================= */}
+          {/* CUSTOMER INTELLIGENCE TAB */}
+          {/* ================================================================= */}
+          {activeTab === 'customer_intelligence' && (
+            <div className="space-y-6 animate-fade-in">
+              <CustomerIntelligenceCenter />
             </div>
           )}
 

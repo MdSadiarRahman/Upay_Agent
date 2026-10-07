@@ -127,6 +127,14 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
     ...(isCustomer
       ? [
           {
+            id: 'customer_intelligence',
+            labelBn: 'কাস্টমার ইন্টেলিজেন্স',
+            labelEn: 'Customer Intelligence',
+            icon: <Bot className="w-4 h-4" />,
+            badge: 'Personalized',
+            badgeColor: 'bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/30',
+          },
+          {
             id: 'responsible_ai',
             labelBn: 'রেসপন্সিবল এআই',
             labelEn: 'Responsible AI',
