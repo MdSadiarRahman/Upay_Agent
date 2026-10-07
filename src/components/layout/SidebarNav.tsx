@@ -161,7 +161,16 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
             badgeColor: 'bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30',
           },
         ]
-      : []),
+      : [
+          {
+            id: 'business_kpi',
+            labelBn: 'বিজনেস ইমপ্যাক্ট ও কেপিআই',
+            labelEn: 'Business KPI',
+            icon: <TrendingUp className="w-4 h-4" />,
+            badge: 'Admin',
+            badgeColor: 'bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30',
+          }
+        ]),
   ];
 
   const sidebarContent = (

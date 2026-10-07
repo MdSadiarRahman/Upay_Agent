@@ -54,6 +54,7 @@ import { formatTaka, calculatePartnerScore } from '../../utils/algorithms';
 import { FintechChatWidget } from '../chat/FintechChatWidget';
 import { SidebarNav } from '../layout/SidebarNav';
 import { SettingsPage } from '../settings/SettingsPage';
+import { BusinessImpactDashboard } from './BusinessImpactDashboard';
 
 interface BusinessDashboardProps {
   language: Language;
@@ -754,7 +755,16 @@ export const BusinessDashboard: React.FC<BusinessDashboardProps> = ({
           )}
 
           {/* ================================================================= */}
-          {/* TAB 8: SETTINGS */}
+          {/* TAB 8: BUSINESS KPI */}
+          {/* ================================================================= */}
+          {activeTab === 'business_kpi' && (
+            <div className="animate-fade-in">
+              <BusinessImpactDashboard />
+            </div>
+          )}
+
+          {/* ================================================================= */}
+          {/* TAB 9: SETTINGS */}
           {/* ================================================================= */}
           {activeTab === 'settings' && (
             <div className="animate-fade-in">
