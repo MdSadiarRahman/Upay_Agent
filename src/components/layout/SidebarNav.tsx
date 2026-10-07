@@ -17,6 +17,7 @@ import {
   CalendarClock,
   ShieldCheck,
   ShieldAlert,
+  Sparkles,
 } from 'lucide-react';
 import { Language } from '../../types';
 import { AuthUser } from '../../types/auth';
@@ -126,6 +127,14 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
     },
     ...(isCustomer
       ? [
+          {
+            id: 'proactive_insights',
+            labelBn: 'প্রোঅ্যাক্টিভ এআই',
+            labelEn: 'Proactive AI',
+            icon: <Sparkles className="w-4 h-4" />,
+            badge: 'Alerts',
+            badgeColor: 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30',
+          },
           {
             id: 'customer_intelligence',
             labelBn: 'কাস্টমার ইন্টেলিজেন্স',
